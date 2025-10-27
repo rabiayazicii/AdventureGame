@@ -38,14 +38,18 @@ public abstract class BattleLoc extends Location {
                 System.out.println("-----------------------------------------");
                 System.out.println("🏁 " + this.getName() + " tüm düşmanları yendiniz !");
                 return true;
+            } else {
+                // Kaçtıysa veya öldüyse false dön
+                if (this.getPlayer().getHealth() <= 0) {
+                    System.out.println("-----------------------------------------");
+                    System.out.println("💀 Öldünüz !");
+                }
+                return false;
             }
-        }
-        if (this.getPlayer().getHealth() <= 0) {
-            System.out.println("-----------------------------------------");
-            System.out.println("💀 Öldünüz !");
+        } else {
+            // Kaçtıysa false dön
             return false;
         }
-        return true;
     }
 
     private int randomobstaclenumber() {
