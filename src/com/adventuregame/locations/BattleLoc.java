@@ -39,16 +39,21 @@ public abstract class BattleLoc extends Location {
                 System.out.println("🏁 " + this.getName() + " tüm düşmanları yendiniz !");
                 return true;
             } else {
-                // Kaçtıysa veya öldüyse false dön
-                if (this.getPlayer().getHealth() <= 0) {
+                // Kaçtıysa veya öldüyse kontrol et
+                if (this.getPlayer().getHealth() > 0) {
+                    // Can varsa kaçtı demektir, özel return değeri
+                    return false; // Kaçma durumu için false dön
+                } else {
+                    // Can yoksa öldü demektir, game over
                     System.out.println("-----------------------------------------");
                     System.out.println("💀 Öldünüz !");
+                    return false;
                 }
-                return false;
             }
         } else {
-            // Kaçtıysa false dön
-            return false;
+            // Kaçtıysa menüye dön
+            System.out.println("🏃 Kaçtınız! Menüye dönülüyor...");
+            return true;
         }
     }
 

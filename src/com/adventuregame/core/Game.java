@@ -88,8 +88,13 @@ public class Game {
                 break;
             }
             if (!location.onLocation()) {
-                System.out.println("💀 Game over!");
-                break;
+                // Can varsa kaçtı demektir, game over değil
+                if (player.getHealth() > 0) {
+                    continue; // Menüye dön
+                } else {
+                    System.out.println("💀 Game over!");
+                    break;
+                }
             }
         }
     }

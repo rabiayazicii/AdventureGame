@@ -53,7 +53,10 @@ public class CombatService implements ICombat {
                             player.setHealth(player.getHealth() - obstacleDamages);
                             afterHit();
                         }
-                    } else return false;
+                    } else {
+                        System.out.println("🏃 Kaçtınız! Menüye dönülüyor...");
+                        return false; // Kaç'a basınca false dön ama özel kontrol yapılacak
+                    }
                 } else {
                     if (obstacle.getHealth() > 0) {
                         System.out.println();
@@ -71,7 +74,10 @@ public class CombatService implements ICombat {
                             System.out.println("💥 Siz vurdunuz !!");
                             obstacle.setHealth(obstacle.getHealth() - player.getDamage());
                             afterHit();
-                        } else return false;
+                        } else {
+                        System.out.println("🏃 Kaçtınız! Menüye dönülüyor...");
+                        return false; // Kaç'a basınca false dön ama özel kontrol yapılacak
+                    }
                     }
                 }
             }
